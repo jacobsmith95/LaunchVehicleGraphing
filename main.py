@@ -10,7 +10,6 @@ def get_pressure(time):
     """"""
     r1.change_time(time)
     r1.calculate_mass()
-    r1.change_ratio()
     r1.calculate_acc()
     r1.calculate_vel()
     velocity = r1.get_velocity()
@@ -19,10 +18,10 @@ def get_pressure(time):
     pressure = dynamic_pressure(velocity, altitude)
     dynamic_pressure_list.append(pressure)
     #r1.change_time(time)
-    return pressure
+    #return pressure
 
 r1 = Rocket(5000000, 74400, 1.0)
-x = np.arange(0.0, 10000.0, .1)
+x = np.arange(0.0, 4000.0, .1)
 dynamic_pressure_list = []
 for num in x:
     get_pressure(num)
