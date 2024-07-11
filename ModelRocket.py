@@ -7,9 +7,8 @@ class Rocket():
     def __init__(self, mass: float, thrust: float, mdot: float):
         """"""
         self.mass   = mass
-        self.weight = mass*(9.80665)
+        self.weight = (mass*(9.80665))/1000
         self.thrust = thrust
-        self.ratio  = self.thrust/self.weight
         self.mdot   = mdot
         self.vel    = 0.0
         self.acc    = 0.0
@@ -28,7 +27,7 @@ class Rocket():
 
     def calculate_acc(self):
         """"""
-        self.acc = self.ratio/self.mass
+        self.acc = (self.thrust-self.weight)/self.mass
 
     def calculcate_alt(self):
         """"""
@@ -37,10 +36,6 @@ class Rocket():
     def change_time(self, new_time: float):
         """"""
         self.time = new_time
-
-    def change_ratio(self):
-        """"""
-        self.ratio = self.thrust/self.weight
 
     def get_velocity(self):
         """"""
